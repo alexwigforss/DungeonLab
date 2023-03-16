@@ -21,21 +21,10 @@ namespace DungeonLab
         public int[] Pos => new int[] { xpos, ypos };
         public void Move(int direction)
         {
-            switch (direction)
-            {
-                case 0:
-                    xpos--;
-                    break;
-                case 1:
-                    ypos--;
-                    break;
-                case 2:
-                    xpos++;
-                    break;
-                case 3:
-                    ypos++;
-                    break;
-            }
+            if (direction == 0) xpos--;
+            else if (direction == 1) ypos--;
+            else if (direction == 2) xpos++;
+            else if (direction == 3) ypos++;
         }
         internal class Program
         {
@@ -112,10 +101,11 @@ namespace DungeonLab
                         SetCursorPosition(2, 22);
                         Write("Player Pos = " + pl.Pos[0] + " " + pl.Pos[1]);
 
+                        SetCursorPosition(2, 24);
+                        Write("Press esc to exit.");
+
                         cki = ReadKey(true);
 
-                        // DID: Array of allowed directions updated after each move
-                        // DID: Only move if allowed (only redraw if moved)
                         switch (cki.Key)
                         {
                             case ConsoleKey.LeftArrow:
