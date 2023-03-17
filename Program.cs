@@ -4,7 +4,8 @@
 // TODO: Ge spelaren några egenskaper Styrka, Smidighet, Hälsa.
 // TODO: Påbörja klassen Zombies
 // (Förväntat Zoombiebeteende är att dem ska driva planlöst tills spelaren kommer närmre än 5 steg)
-// Dem behöver alltså egenskap Fjärrsyn. och stryka (struntar i HP tillsvidare))
+// Å andra sidan är det låttare att checka om (zombien & spelaren är på samma rad) och (inget är emellan) 
+// Dem behöver alltså egenskap Fjärrsyn. och Stryka (struntar i HP tillsvidare))
 
 using System;
 using static System.Console;
@@ -15,8 +16,8 @@ namespace DungeonLab
         int xpos, ypos;
         public Player()
         {
-            xpos = 10;
-            ypos = 10;
+            xpos = 1;
+            ypos = 1;
         }
         public int[] Pos => new int[] { xpos, ypos };
         public void Move(int direction)
@@ -33,24 +34,24 @@ namespace DungeonLab
                 char[,] landscape = new char[20, 40];
 
                 string lvl2 = "████████████████████████████████████████\n" +
-                              "█    █            █             █      █\n" +
-                              "█    █            █             █      █\n" +
-                              "█    █            █             █      █\n" +
-                              "█    █     █      █      █      █      █\n" +
-                              "█    █     █      █      █      █      █\n" +
-                              "█    █     █      █      █      █      █\n" +
-                              "█    █     █      █      █      █      █\n" +
-                              "█    █     █      █      █      █      █\n" +
-                              "█    █     █      █      █      █      █\n" +
-                              "█    █     █      █      █      █      █\n" +
-                              "█    █     █      █      █      █      █\n" +
-                              "█    █     █      █      █      █      █\n" +
-                              "█    █     █      █      █      █      █\n" +
-                              "█    █     █      █      █      █      █\n" +
-                              "█    █     █      █      █      █      █\n" +
-                              "█          █             █             █\n" +
-                              "█          █             █             █\n" +
-                              "█          █             █             █\n" +
+                              "█  █████      ███                      █\n" +
+                              "█  █████      ███        █████████████ █\n" +
+                              "█  █████      ███        █          ██ █\n" +
+                              "█  ██    ███   ██        █          ██ █\n" +
+                              "█        ███   ██ ████ ███          ██ █\n" +
+                              "█████    ███   ██ ████ ███████████████ █\n" +
+                              "██████  ██████ ██ ████ ███             █\n" +
+                              "█   ██  ████   ██ ████ ███ ██████████ ██\n" +
+                              "█   ██  ████ ████ ████ ███ ██     ███ ██\n" +
+                              "█ ████  ████ ████ ████ ███ ██     ███ ██\n" +
+                              "█                                 ███ ██\n" +
+                              "████ ███████ ██     ██ ██████     ███ ██\n" +
+                              "████ ███████ ██     ██ ██████████████ ██\n" +
+                              "████ ███████ ██     ██ ██████████████ ██\n" +
+                              "████ ███████ █████████ █████          ██\n" +
+                              "████      ██        ██ █████          ██\n" +
+                              "████      ██        ██ █████          ██\n" +
+                              "████      ██        ██                ██\n" +
                               "████████████████████████████████████████";
 
                 // from string TO string array
